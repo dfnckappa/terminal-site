@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-size: 1.25rem; 
+  line-height: 1.5;
+}
+
+/* --- TERMINAL AESTHETICS --- */
+
+/* KEYFRAME for the Shake Effect */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(5px); }
+  50% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.2s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* CRT SCANLINE EFFECT */
+.terminal-crt {
+  text-shadow: 0 0 5px rgba(0, 255, 0, 0.75);
+  position: relative;
+}
+
+.terminal-crt::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: 
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 10;
+  background-size: 100% 4px, 3px 100%;
+  /* ✨ MODIFIED: Reduced opacity for a less visible effect */
+  opacity: 0; /* You can adjust this value further (e.g., 0.15, 0.1) */
+}
+
+/* Blink cursor animation */
+@keyframes blink {
+  0%, 100% { caret-color: #4ade80; } 
+  50% { caret-color: transparent; }
+}
+
+.terminal-input input {
+    animation: blink 1s step-end infinite;
+}
