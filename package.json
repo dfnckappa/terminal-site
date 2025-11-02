@@ -8,8 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d out -a CNAME -a .nojekyll"
-  },
+    // CORRECTED: Use --add for each file separately
+    "deploy": "gh-pages -d out --add CNAME --add .nojekyll" 
+},
   "dependencies": {
     "next": "16.0.1",
     "react": "19.2.0",
