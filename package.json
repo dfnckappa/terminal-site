@@ -2,14 +2,11 @@
   "name": "terminal-site",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
+"scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "predeploy": "npm run build",
-    // CORRECTED: Use --add for each file separately
-    "deploy": "gh-pages -d out --add CNAME --add .nojekyll" 
+    "lint": "eslint"
 },
   "dependencies": {
     "next": "16.0.1",
