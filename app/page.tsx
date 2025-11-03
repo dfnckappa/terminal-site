@@ -29,9 +29,9 @@ const VIDEOS_DATA = [
 const COMMANDS = [
   { cmd: "list", description: "Shows all available commands." },
   { cmd: "videos", description: "Displays the list of videos." },
-  { cmd: "clear", description: "Clears the terminal output." },
   { cmd: "load (title)", description: "Loads a specific video. E.g. 'load intro to react hooks'." },
-  { cmd: "socials", description: "Shows social media links." }, 
+  { cmd: "socials", description: "Shows social media links." },
+  { cmd: "clear", description: "Clears the terminal output." },  
 ];
 
 const TERMINAL_PROMPT = '$';
